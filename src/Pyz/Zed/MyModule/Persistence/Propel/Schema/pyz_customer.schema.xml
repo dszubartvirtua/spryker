@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<database namespace="Orm\Zed\Customer\Persistence" name="zed" package="src.Orm.Zed.Customer.Persistence">
+
+    <table name="pyz_customer" idMethod="native" phpName="PyzCustomer">
+
+        <column name="id_customer" required="true" type="INTEGER" autoIncrement="true" primaryKey="true"/>
+        <column name="fk_locale" type="INTEGER"/>
+        <column name="email" required="true" size="255" type="VARCHAR"/>
+        <column name="first_name" size="100" type="VARCHAR"/>
+        <column name="last_name" size="100" type="VARCHAR"/>
+        <column name="company" size="100" type="VARCHAR"/>
+
+        <foreign-key name="pyz_customer-fk_locale" foreignTable="spy_locale" phpName="Locale">
+
+            <reference local="fk_locale" foreign="id_locale"/>
+
+        </foreign-key>
+    </table>
+</database>
