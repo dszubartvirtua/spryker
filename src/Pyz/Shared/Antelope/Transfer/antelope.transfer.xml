@@ -18,4 +18,8 @@
         <property name="antelope" type="Antelope"/>
         <property name="isSuccessFul" type="bool"/>
     </transfer>
+    <transfer name="AntelopesResponse">
+        <property name="antelopes" type="Antelope[]" singular="item" associative="true"/>
+        <property name="isSuccessFul" type="bool"/>
+    </transfer>
 </transfers>

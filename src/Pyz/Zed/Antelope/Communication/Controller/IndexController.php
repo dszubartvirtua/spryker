@@ -43,7 +43,7 @@ class IndexController extends AbstractController
 
 
         return $this->viewResponse([
-            'antelopes' => $antelopes,
+            'antelopes' => $antelopes->getAntelopes()->getArrayCopy(),
         ]);
     }
 

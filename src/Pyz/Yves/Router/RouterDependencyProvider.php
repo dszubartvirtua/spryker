@@ -7,6 +7,7 @@
 
 namespace Pyz\Yves\Router;
 
+use Pyz\Yves\AntelopePage\Plugin\Router\AntelopePageRouteProviderPlugin;
 use Pyz\Yves\ExampleProductSalePage\Plugin\Router\ExampleProductSaleRouteProviderPlugin;
 use Pyz\Yves\TrainingPage\Plugin\Router\TrainingPageRouteProviderPlugin;
 use Spryker\Yves\HealthCheck\Plugin\Router\HealthCheckRouteProviderPlugin;
@@ -77,6 +78,7 @@ class RouterDependencyProvider extends SprykerRouterDependencyProvider
     {
         return [
             new TrainingPageRouteProviderPlugin(),
+            new AntelopePageRouteProviderPlugin(),
             new ErrorPageRouteProviderPlugin(),
             new HomePageRouteProviderPlugin(),
             new CheckoutPageRouteProviderPlugin(),

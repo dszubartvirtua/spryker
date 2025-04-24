@@ -4,6 +4,7 @@ namespace Pyz\Zed\Antelope\Business\Reader;
 
 use Generated\Shared\Transfer\AntelopeCriteriaTransfer;
 use Generated\Shared\Transfer\AntelopeResponseTransfer;
+use Generated\Shared\Transfer\AntelopesResponseTransfer;
 use Generated\Shared\Transfer\AntelopeTransfer;
 use Pyz\Zed\Antelope\Persistence\AntelopeRepositoryInterface;
 
@@ -29,11 +30,19 @@ class AntelopeReader
 
     /**
      * @param AntelopeCriteriaTransfer $antelopeCriteriaTransfer
-     * @return array<AntelopeTransfer>
+     * @return AntelopesResponseTransfer
      */
     public function getAntelopes(
         AntelopeCriteriaTransfer $antelopeCriteriaTransfer
-    ): array {
-        return $this->AntelopeRepository->getAntelopes($antelopeCriteriaTransfer);
+    ): AntelopesResponseTransfer {
+        $antelopeTransfers =  $this->AntelopeRepository->getAntelopes($antelopeCriteriaTransfer);
+
+        $antelopeResponseTransfer = new AntelopesResponseTransfer();
+        $antelopeResponseTransfer->setIsSuccessFul(false);
+        if ($antelopeTransfers) {
+            $antelopeResponseTransfer->setAntelopes(new \ArrayObject($antelopeTransfers));
+            $antelopeResponseTransfer->setIsSuccessFul(true);
+        }
+        return $antelopeResponseTransfer;
     }
 }

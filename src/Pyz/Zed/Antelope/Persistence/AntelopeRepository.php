@@ -47,14 +47,15 @@ class AntelopeRepository extends AbstractRepository implements
     public function getAntelopes(
         AntelopeCriteriaTransfer $antelopeCriteriaTransfer
     ): ?array {
-        $antelopeEntities = $this->getFactory()->createAntelopeQuery()->find();
+        $antelopeEntities = $this->getFactory()->createAntelopeQuery()->joinWithPyzAntelopeLocation()->find();
         if (!$antelopeEntities) {
             return null;
         }
         $result = [];
         foreach ($antelopeEntities as $antelopeEntity) {
-            $result[] = (new AntelopeTransfer())->fromArray($antelopeEntity->toArray(),
-                true);
+            $antelopeTransfer = (new AntelopeTransfer())->fromArray($antelopeEntity->toArray(), true);
+            $antelopeTransfer->setLocationName($antelopeEntity->getPyzAntelopeLocation()->getLocationName());
+            $result[] = $antelopeTransfer;
         }
         return $result;
     }
