@@ -16,6 +16,14 @@
         <controller>profile</controller>
         <action>index</action>
     </merchant-portal-profile>
+    <customer-merchant-portal-gui>
+        <label>Customers</label>
+        <title>Customers</title>
+        <icon>profile</icon>
+        <bundle>customer-merchant-portal-gui</bundle>
+        <controller>customer</controller>
+        <action>index</action>
+    </customer-merchant-portal-gui>
     <product-merchant-portal-gui>
         <label>Products</label>
         <title>Products</title>
