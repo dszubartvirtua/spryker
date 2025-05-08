@@ -35,4 +35,18 @@ class AntelopeRepository extends AbstractRepository implements
         }
         return (new AntelopeLocationTransfer())->fromArray($antelopeLocationEntity->toArray(), true);
     }
+
+    public function getAntelopeLocations(AntelopeLocationsCriteriaTransfer|\Generated\Shared\Transfer\AntelopeLocationsCriteriaTransfer $antelopeLocationsCriteriaTransfer):?array
+    {
+        $antelopeLocationCollection = $this->getFactory()->createAntelopeLocationQuery()->find();
+        if(!$antelopeLocationCollection){
+            return null;
+        }
+        $result = [];
+        foreach ($antelopeLocationCollection as $antelopeLocationEntity) {
+            $result[] = (new AntelopeLocationTransfer())->fromArray($antelopeLocationEntity->toArray(), true);
+        }
+
+        return $result;
+    }
 }
