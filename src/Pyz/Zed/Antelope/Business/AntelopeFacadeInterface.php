@@ -24,11 +24,11 @@ interface AntelopeFacadeInterface
     public function createAntelope(AntelopeTransfer $antelopeTransfer): AntelopeTransfer;
 
     public function createAntelopeLocation(
-        AntelopeLocationTransfer $antelopeLocationTransfer,
+        AntelopeLocationTransfer $criteriaTransfer,
     ): AntelopeLocationTransfer;
 
     public function getAntelope(
-        AntelopeCriteriaTransfer $antelopeCriteriaTransfer,
+        AntelopeCriteriaTransfer $criteriaTransfer,
     ): AntelopeResponseTransfer;
 
     public function getAntelopeLocationById(
@@ -36,12 +36,16 @@ interface AntelopeFacadeInterface
     ): ?AntelopeLocationTransfer;
 
     public function getAntelopeLocation(
-        AntelopeLocationCriteriaTransfer $antelopeLocationCriteria,
+        AntelopeLocationCriteriaTransfer $criteriaTransfer,
     ): AntelopeLocationResponseTransfer;
 
     public function getAntelopeLocationCollection(AntelopeLocationCriteriaTransfer $criteriaTransfer): AntelopeLocationCollectionTransfer;
 
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer;
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $criteriaTransfer): AntelopeCollectionTransfer;
 
     public function getAntelopeLocations(): AntelopeLocationCollectionTransfer;
+
+    public function updateAntelopeLocation(AntelopeLocationTransfer $antelopeLocationTransfer): AntelopeLocationTransfer;
+
+    public function deleteAntelopeLocation(AntelopeLocationTransfer $antelopeLocationTransfer): bool;
 }

@@ -57,6 +57,10 @@
         <property name="antelopes" type="Antelope[]" singular="antelope"/>
         <property name="pagination" type="Pagination"/>
     </transfer>
+    <transfer name="AntelopeLocationCollection">
+        <property name="antelopeLocations" type="AntelopeLocation[]" singular="antelopeLocation"/>
+        <property name="pagination" type="Pagination"/>
+    </transfer>
     <transfer name="Pagination">
         <property name="limit" type="int"/>
         <property name="offset" type="int"/>
@@ -85,5 +89,15 @@
     <transfer name="Sort">
         <property name="field" type="string"/>
         <property name="isAscending" type="bool"/>
+    </transfer>
+    <transfer name="AntelopeLocationCondition">
+        <property name="antelopeLocationIds" singular="antelopeLocationId" type="int[]"/>
+        <property name="idAntelopeLocation" type="int"/>
+        <property name="name" type="string"/>
+    </transfer>
+    <transfer name="AntelopeLocationCriteria">
+        <property name="antelopeLocationConditions" type="AntelopeLocationCondition"/>
+        <property name="sortCollection" type="Sort[]"/>
+        <property name="pagination" type="Pagination"/>
     </transfer>
 </transfers>

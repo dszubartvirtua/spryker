@@ -36,37 +36,47 @@ class AntelopeFacade extends AbstractFacade implements AntelopeFacadeInterface
     }
 
     public function getAntelope(
-        AntelopeCriteriaTransfer $antelopeCriteriaTransfer,
+        AntelopeCriteriaTransfer $criteriaTransfer,
     ): AntelopeResponseTransfer {
-        return $this->getFactory()->createAntelopeReader()->getAntelope($antelopeCriteriaTransfer);
+        return $this->getFactory()->createAntelopeReader()->getAntelope($criteriaTransfer);
     }
 
     public function createAntelopeLocation(
-        AntelopeLocationTransfer $antelopeLocationTransfer,
+        AntelopeLocationTransfer $criteriaTransfer,
     ): AntelopeLocationTransfer {
-        return $this->getFactory()->createAntelopeLocationWriter()->createAntelopeLocation($antelopeLocationTransfer);
+        return $this->getFactory()->createAntelopeLocationWriter()->createAntelopeLocation($criteriaTransfer);
     }
 
     public function getAntelopeLocation(
-        AntelopeLocationCriteriaTransfer $antelopeLocationCriteria,
+        AntelopeLocationCriteriaTransfer $criteriaTransfer,
     ): AntelopeLocationResponseTransfer {
-        return $this->getFactory()->createAntelopeLocationReader()->getAntelopeLocation($antelopeLocationCriteria);
+        return $this->getFactory()->createAntelopeLocationReader()->getAntelopeLocation($criteriaTransfer);
     }
 
-    public function getAntelopeLocationCollection(AntelopeLocationCriteriaTransfer $antelopeLocationCriteriaTransfer): AntelopeLocationCollectionTransfer
+    public function getAntelopeLocationCollection(AntelopeLocationCriteriaTransfer $criteriaTransfer): AntelopeLocationCollectionTransfer
     {
         return $this->getFactory()->createAntelopeLocationReader()->getAntelopeLocationCollection(
-            $antelopeLocationCriteriaTransfer,
+            $criteriaTransfer,
         );
     }
 
-    public function getAntelopeCollection(AntelopeCriteriaTransfer $antelopeCriteriaTransfer): AntelopeCollectionTransfer
+    public function getAntelopeCollection(AntelopeCriteriaTransfer $criteriaTransfer): AntelopeCollectionTransfer
     {
-        return $this->getFactory()->createAntelopeReader()->getAntelopeCollection($antelopeCriteriaTransfer);
+        return $this->getFactory()->createAntelopeReader()->getAntelopeCollection($criteriaTransfer);
     }
 
     public function getAntelopeLocations(): AntelopeLocationCollectionTransfer
     {
         return $this->getFactory()->createAntelopeLocationReader()->getAntelopeLocations();
+    }
+
+    public function updateAntelopeLocation(AntelopeLocationTransfer $antelopeLocationTransfer): AntelopeLocationTransfer
+    {
+        return $this->getFactory()->createAntelopeLocationUpdater()->updateAntelopeLocation($antelopeLocationTransfer);
+    }
+
+    public function deleteAntelopeLocation(AntelopeLocationTransfer $antelopeLocationTransfer): bool
+    {
+        return $this->getFactory()->createAntelopeLocationDeleter()->deleteAntelopeLocation($antelopeLocationTransfer);
     }
 }

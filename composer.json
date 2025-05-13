@@ -3,7 +3,7 @@
     "description": "Spryker B2C Demo Shop",
     "license": "proprietary",
     "require": {
-        "php": ">=8.3",
+        "php": ">=8.3.13",
         "ext-bcmath": "*",
         "ext-curl": "*",
         "ext-gd": "*",
@@ -282,7 +282,7 @@
     "config": {
         "preferred-install": "dist",
         "platform": {
-            "php": "8.2.0"
+            "php": "8.3.13"
         },
         "use-include-path": true,
         "sort-packages": true,

@@ -11,7 +11,7 @@ namespace Pyz\Glue\AntelopesBackendApi\Processor\Expander;
 
 use Generated\Shared\Transfer\AntelopeConditionTransfer;
 use Generated\Shared\Transfer\GlueRequestTransfer;
-use Pyz\Glue\AntelopesBackendApi\AntelopesBackendApiConfig;
+use Pyz\Glue\AntelopesBackendApi\AntelopeLocationBackendApiConfig;
 
 class AntelopesExpander implements AntelopesExpanderInterface
 {
@@ -20,7 +20,7 @@ class AntelopesExpander implements AntelopesExpanderInterface
         GlueRequestTransfer $glueRequestTransfer,
     ): AntelopeConditionTransfer {
         foreach ($glueRequestTransfer->getFilters() as $filter) {
-            if ($filter->getResource() !== AntelopesBackendApiConfig::RESOURCE_ANTELOPES) {
+            if ($filter->getResource() !== AntelopeLocationBackendApiConfig::RESOURCE_ANTELOPES) {
                 return $antelopeConditionTransfer;
             }
             $filterField = $filter->getField();
