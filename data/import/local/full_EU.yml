@@ -211,3 +211,7 @@ actions:
 #6. Miscellaneous Setup import
   - data_entity: mime-type
     source: data/import/common/common/mime_type.csv
+
+
+  - data_entity: antelope-location
+    source: data/import/local/common/antelope_location.csv
