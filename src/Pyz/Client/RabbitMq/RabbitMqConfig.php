@@ -7,6 +7,7 @@
 
 namespace Pyz\Client\RabbitMq;
 
+use Pyz\Zed\AntelopeLocationSearch\AntelopeLocationSearchConfig;
 use Spryker\Client\RabbitMq\RabbitMqConfig as SprykerRabbitMqConfig;
 use Spryker\Shared\AssetStorage\AssetStorageConfig;
 use Spryker\Shared\AvailabilityStorage\AvailabilityStorageConfig;
@@ -117,6 +118,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             ProductStorageConfig::PUBLISH_PRODUCT_ABSTRACT,
             ProductStorageConfig::PUBLISH_PRODUCT_CONCRETE,
             CustomerStorageConfig::PUBLISH_CUSTOMER_INVALIDATED,
+            AntelopeLocationSearchConfig::ANTELOPE_LOCATION_PUBLISH_SEARCH_QUEUE,
         ];
     }
 
@@ -151,6 +153,7 @@ class RabbitMqConfig extends SprykerRabbitMqConfig
             AssetStorageConfig::ASSET_SYNC_STORAGE_QUEUE,
             ProductConfigurationStorageConfig::PRODUCT_CONFIGURATION_SYNC_STORAGE_QUEUE,
             SearchHttpConfig::SEARCH_HTTP_CONFIG_SYNC_QUEUE,
+            AntelopeLocationSearchConfig::ANTELOPE_LOCATION_SYNC_SEARCH_QUEUE
         ];
     }
 
